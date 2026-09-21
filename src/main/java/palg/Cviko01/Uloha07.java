@@ -26,11 +26,16 @@ public class Uloha07 {
 
     public static void repairInt(int input)
     {
-        input = 10;
+        // Nejde, protože int je primitivní
+        // datový typ, do metody putuje
+        // jen jeho holá číselná hodnota
     }
     public static void repairString(String input)
     {
-        input.replace("A","B");
+        // Nejde, protože String nemá žádnou
+        // metodu, která by ho vnitřně změnila
+        // (např. nějaký setter)
+        // Takové třídě říkáme, že je "immutable"
     }
     public static void repairCar(Car input)
     {
