@@ -26,9 +26,11 @@ public class Uloha07 {
 
     public static void repairInt(int input)
     {
+        input = 10;
     }
     public static void repairString(String input)
     {
+        input.replace("A","B");
     }
     public static void repairCar(Car input)
     {
