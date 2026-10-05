@@ -1,5 +1,8 @@
 package palg.Cviko02;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 public class Uloha02
 {
     // Doplň metodu sumOfSmall (se dvěma vstupy), která vrátí součet čísel v daném poli,
@@ -8,10 +11,22 @@ public class Uloha02
 
     public static void main(String[] args)
     {
+        try {
+            System.out.println(
+                sumOfSmall(
+                    FileUtils.integersFromFile("southMoravia.txt"),
+                    1000
+                )
+            );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    //public static ... sumOfSmall( ... , ... )
-    //{
-
-    //}
+    public static int sumOfSmall( int[] values , int limit)
+    {
+       return Arrays.stream(values)
+                .filter(x -> x < limit)
+                .sum();
+    }
 }
