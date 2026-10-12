@@ -16,6 +16,11 @@ public class Uloha05
     // TODO: Doplň metodu, která vypíše prvky matice do konzole
     public static void print(double[][] matrix)
     {
-
+        for (var row : matrix){
+            for (var x : row){
+                System.out.printf("%6.2f",x);
+            }
+            System.out.println();
+        }
     }
 }
