@@ -1,6 +1,6 @@
 package palg.Cviko04.Uloha02.DataModel;
 
-public class CestaAutem {
+public class CestaAutem implements Vydaj  {
     private final double castkaZaLitr;
     private final int ujetoKm;
     private final double spotrabaNa100km;
@@ -27,5 +27,11 @@ public class CestaAutem {
 
     public int getAmortizaceNaKm() {
         return amortizaceNaKm;
+    }
+
+    @Override
+    public double castkaKProplaceni() {
+        return getCastkaZaLitr() * getSpotrabaNa100km() * getUjetoKm() / 100d
+                + getAmortizaceNaKm() * getUjetoKm();
     }
 }

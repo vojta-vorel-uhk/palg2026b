@@ -44,6 +44,8 @@ public class Main {
                 return s;
             case "FROM_TIMESTAMP":
                 var s1 = Long.toString(Instant.now().toEpochMilli() % 1000000);
+                while (s1.length() < 6)
+                    s1 = "0"+s1;
                 return s1;
             case "RANDOM_NUMBER_API":
                 try (HttpClient client = HttpClient.newHttpClient()) {
@@ -54,7 +56,7 @@ public class Main {
                     responseBody = client.send(request, HttpResponse.BodyHandlers.ofString()).body();
                     return responseBody.replace("[", "").replace("]", "").trim();
                 } catch (Exception e) {
-
+                    throw new RuntimeException("CHYBA PŘI GENEROVÁNÍ KÓDU");
                 }
             case "FIXED_FOR_TESTING":
                 return  "334455";

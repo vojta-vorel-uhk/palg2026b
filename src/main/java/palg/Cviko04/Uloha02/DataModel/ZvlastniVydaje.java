@@ -1,6 +1,6 @@
 package palg.Cviko04.Uloha02.DataModel;
 
-public class ZvlastniVydaje {
+public class ZvlastniVydaje implements Vydaj {
     private final String duvod;
     private final int castka;
 
@@ -15,5 +15,10 @@ public class ZvlastniVydaje {
 
     public int getCastka() {
         return castka;
+    }
+
+    @Override
+    public double castkaKProplaceni() {
+        return getCastka();
     }
 }

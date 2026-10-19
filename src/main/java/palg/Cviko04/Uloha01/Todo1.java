@@ -16,14 +16,18 @@ public class Todo1 {
             switch (level) {
                 case "STONE":
                     score += 10;
+                    break;
                 case "GOLD":
                     score += 30;
+                    break;
                 case "WOOD":
                 case "GLASS":
                 case "IRON":
                     score += 4;
+                    break;
                 case "SILVER":
                     score += 20;
+                    break;
                 default:
                     score += 3;
             }
