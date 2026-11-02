@@ -1,6 +1,7 @@
 package palg.Cviko06;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main
@@ -23,6 +24,16 @@ public class Main
         //  Přidej Munchen na pozici 1
         //  Přidej Beograd na pozici 1
         //  Přidej KarlovyVary na první pozici
+        var list = new LinkedList<Location>();
+        list.addFirst(HradecKralove);
+        list.addFirst(Pardubice);
+        list.addFirst(Praha);
+        list.add(1,Munchen);
+        list.add(1,Beograd);
+        list.addFirst(KarlovyVary);
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
+
 
         // TODO 5:
         //  Otestuj zde hotovou třídu RouteList

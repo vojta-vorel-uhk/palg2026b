@@ -10,4 +10,8 @@ public interface SimplifiedList<E> {
     //  -addLast
     //  -get
     //  -size
+    void addFirst(E item);
+    void addLast(E item);
+    E get(int index);
+    int size();
 }
