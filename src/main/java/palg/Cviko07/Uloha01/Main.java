@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Queries count: "+ queries.length);
         int successCount = 0;
         for (var q : queries) {
-            if(find(db,q))
+            if(find(db,q,0,db.length))
                 successCount++;
         }
         System.out.println("Successful queries count: "+ successCount);
@@ -19,8 +19,18 @@ public class Main {
     // TODO: Pokud db obsahuje položku s klíčem q, vrať true.
     //       - Metoda musí fungovat rychle
     //       - Hlavičku metody je dovoleno měnit
-    public static boolean find(Item[] db, int q)
+    public static boolean find(Item[] db, int q, int start, int count)
     {
-        return false;
+        if(count <= 1){
+            return db[start].Key == q;
+        }
+        // ujasnit co je levá a pravá půlka
+        int leftCount = count / 2;
+        // zavolat opět find, ale jen pro jednu půlku
+        if(db[start+leftCount].Key > q ) {
+            return find(db,q,start,leftCount);
+        } else {
+            return find(db,q,start+leftCount,count-leftCount);
+        }
     }
 }

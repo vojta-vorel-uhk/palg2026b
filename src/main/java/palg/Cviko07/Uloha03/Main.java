@@ -9,6 +9,15 @@ public class Main {
     // TODO: Uhodni, co metoda měla dělat a uprav ji tak, aby fungovala.
     public static long compute(long input)
     {
+        if(input == 1)
+            return 1;
         return input * compute(input -1);
+    }
+    public static long compute2(long input)
+    {
+        long result = 1;
+        for (int i =1; i <=input;i++)
+            result *=i;
+        return result;
     }
 }
