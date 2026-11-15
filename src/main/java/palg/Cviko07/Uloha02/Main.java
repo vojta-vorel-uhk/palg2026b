@@ -11,6 +11,18 @@ public class Main {
     // TODO: Doplň metodu tak, aby ve složce "startDir" a jejích podsložkách
     //       hledala soubor s názvem "fileName". Pokud ho najde, vrátí celou cestu k němu.
     public static String search(File startDir, String fileName) {
+        for(var child : startDir.listFiles())
+        {
+            if(child.isDirectory())
+            {
+
+            }
+            else
+            {
+                if(child.getName().equals(fileName))
+                    return child.getAbsolutePath();
+            }
+        }
         return null;
     }
 }
