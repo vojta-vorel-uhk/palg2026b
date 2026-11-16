@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        var r = search(new File("C:\\Pictures"), "4e68.png");
+        var r = search(new File("C:\\Program Files"), "cef.pak");
         System.out.println(r);
     }
 
@@ -15,7 +15,9 @@ public class Main {
         {
             if(child.isDirectory())
             {
-
+                var subResult = search(child,fileName);
+                if(subResult != null)
+                    return subResult;
             }
             else
             {

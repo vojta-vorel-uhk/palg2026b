@@ -15,7 +15,9 @@ public class Heap implements HeapInterface
     public Message extractMin(){
         var result = data[0];
         // TODO 6: odstranit minimum "nahrubo"
-
+        data[0] = data[count-1];
+        count--;
+        data[count]=null;
         // TODO 7: while cyklem opravit haldu
 
         return result;
@@ -24,14 +26,21 @@ public class Heap implements HeapInterface
     public void add(Message m)
     {
         // TODO 4: přidat prvek "nahrubo"
-
+        data[count] = m;
+        count++;
         // TODO 5: metodou repairUp cyklem opravit haldu
-
+        repairUp(count-1);
     }
 
     private void repairUp(int index)
     {
-
+        if(index == 0)
+            return;
+        var parent = parent(index);
+        if( !isOk(index,parent) ){
+            swap(index,parent);
+            repairUp(parent);
+        }
     }
 
     private int lowerChildIndex(int current){
@@ -58,14 +67,14 @@ public class Heap implements HeapInterface
     }
 
     private static int leftChild(int index){
-        return -1; // TODO 3
+        return index*2+1; // TODO 3
     }
 
     private static int rightChild(int index){
-        return -1; // TODO 2
+        return index*2+2; // TODO 2
     }
 
     private static int parent(int index){
-        return -1; // TODO 1
+        return (index-1)/2; // TODO 1
     }
 }
